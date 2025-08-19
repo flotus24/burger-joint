@@ -1,7 +1,19 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Bold Serif";
+  src: url("/fonts/Bartender Bold Serif Letterpress.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Sauce Tomato";
+  src: url("/fonts/Sauce Tomato.otf") format("opentype");
+}
+
 @theme {
   --font-sans: "Mona Sans", sans-serif; /* Override default font */
+  --font-bold-serif: "Bold Serif", sans-serif;
+  --font-sauce-tomato: "Sauce Tomato", sans-serif;
   --tw-color-yell: #e7d393;
 }
 
@@ -9,7 +21,7 @@ html,
 body {
   width: 100%;
   background-color: #f7f5f0;
-  color: #e32929;
+  color: #db2d2d;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
