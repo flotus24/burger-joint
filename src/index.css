@@ -2,6 +2,7 @@
 
 @theme {
   --font-sans: "Mona Sans", sans-serif; /* Override default font */
+  --tw-color-yell: #e7d393;
 }
 
 html,
