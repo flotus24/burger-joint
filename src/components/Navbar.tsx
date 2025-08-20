@@ -1,3 +1,6 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 const Navbar = () => {
   type NavLinks = {
     id: string;
@@ -13,15 +16,29 @@ const Navbar = () => {
       id: "about",
       title: "About Us",
     },
-    {
-      id: "menu",
-      title: "Menu",
-    },
+    // {
+    //   id: "menu",
+    //   title: "Menu",
+    // },
     {
       id: "contact",
       title: "Contact",
     },
   ];
+
+  useGSAP(() => {
+    const navTransition = gsap;
+
+    navTransition.fromTo(
+      "nav",
+      { backgroundColor: "transparent" },
+      {
+        backgroundColor: "#ffd230", //black color with opacity
+        duration: 5,
+        ease: "power1.inOut",
+      }
+    );
+  });
 
   return (
     <nav className="fixed z-50 w-full shadow-2xl">

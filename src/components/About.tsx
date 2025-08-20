@@ -9,7 +9,7 @@ const About = () => {
             <img
               src="/images/fries (1).jpg"
               alt="burger model"
-              className="abs-model-1 lg:w-[22rem] md:w-48 z-50"
+              className="abs-model-1 lg:w-[22rem] md:w-48 z-10"
             />
             <img
               src="/images/eat-model.jpg"
@@ -32,7 +32,7 @@ const About = () => {
               and our
               <span className=" text-green-700">
                 {" "}
-                signature house-made sauces.{" "}
+                signature housemade sauces.{" "}
               </span>
               We're proud to be your neighborhood spot, a place where friends
               and family can gather to enjoy good food and great company.
