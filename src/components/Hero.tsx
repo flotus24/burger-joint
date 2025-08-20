@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section id="hero">
+    <section id="home">
       <div className="w-full h-[100vh] relative">
         <video
           src="/videos/grilling.mp4"

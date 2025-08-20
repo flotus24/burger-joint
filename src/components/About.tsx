@@ -32,7 +32,7 @@ const About = () => {
               and our
               <span className=" text-green-700">
                 {" "}
-                signature house-made sauces.
+                signature house-made sauces.{" "}
               </span>
               We're proud to be your neighborhood spot, a place where friends
               and family can gather to enjoy good food and great company.
