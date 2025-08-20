@@ -3,7 +3,7 @@ const Hero = () => {
     <section id="home">
       <div className="w-full h-[100vh] relative">
         <video
-          src="/videos/grilling.mp4"
+          src="/videos/grilling.webm"
           muted
           autoPlay
           loop
