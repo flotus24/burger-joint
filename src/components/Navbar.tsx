@@ -36,7 +36,7 @@ const Navbar = () => {
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
-                className="text-5xl font-bold-serif leading-0"
+                className="text-4xl font-bold-serif leading-0"
               >
                 {link.title}
               </a>
