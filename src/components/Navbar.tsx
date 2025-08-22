@@ -61,7 +61,7 @@ const Navbar = () => {
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
-                className="text-4xl font-bold-serif leading-0"
+                className="text-4xl font-bold-serif leading-0 hover:text-green-700 duration-300"
               >
                 {link.title}
               </a>

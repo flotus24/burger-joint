@@ -43,7 +43,7 @@ const Contact = () => {
         <div className="col-center text-3xl">
           <h2 className="font-bold-serif text-6xl">Where to Find Us</h2>
           <h3 className="mt-4">Visit Our Location: </h3>
-          <p className="mt-2">
+          <p className="mt-2 text-center">
             Jalan T.B. Simatupang Kavling 17, Cilandak, Jakarta Selatan
           </p>
           <h3 className="font-bold-serif text-6xl mt-4">Contact Us</h3>
