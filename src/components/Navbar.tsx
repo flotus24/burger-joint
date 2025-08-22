@@ -1,5 +1,8 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
   type NavLinks = {
@@ -34,8 +37,13 @@ const Navbar = () => {
       { backgroundColor: "transparent" },
       {
         backgroundColor: "#ffd230", //black color with opacity
-        duration: 5,
         ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: "nav",
+          start: "bottom top",
+          scrub: 2, // Links the animation's progress to the scroll position
+          toggleActions: "restart none none none",
+        },
       }
     );
   });
