@@ -28,12 +28,12 @@ const About = () => {
           trigger: "#about",
           start: "top bottom",
           end: "bottom bottom",
-          scrub: 5,
+          scrub: 3,
         },
       })
-      .to("#image1", { y: 100 }, 0) //third parameter is position parameter
-      .to("#image2", { y: 100 }, 0);
-  });
+      .to("#image1", { y: 120 }, 0) //third parameter is position parameter
+      .to("#image2", { y: 120 }, 0);
+  }, []);
 
   return (
     <section id="about">

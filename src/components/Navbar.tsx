@@ -1,6 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,7 +47,21 @@ const Navbar = () => {
         },
       }
     );
-  });
+  }, []);
+
+  // Make sure scrollTrigger applied after the page is loaded
+  useEffect(() => {
+    const handleLoad = () => {
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener("load", handleLoad);
+
+    // Cleanup the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("load", handleLoad);
+    };
+  }, []);
 
   return (
     <nav className="fixed z-50 w-full shadow-2xl">
