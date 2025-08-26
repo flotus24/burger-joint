@@ -20,10 +20,10 @@ const Navbar = () => {
       id: "about",
       title: "About Us",
     },
-    // {
-    //   id: "menu",
-    //   title: "Menu",
-    // },
+    {
+      id: "menu",
+      title: "Menu",
+    },
     {
       id: "contact",
       title: "Contact",
@@ -34,10 +34,10 @@ const Navbar = () => {
     const navTransition = gsap;
 
     navTransition.fromTo(
-      "nav",
+      "#navbar",
       { backgroundColor: "transparent" },
       {
-        backgroundColor: "#ffd230", //black color with opacity
+        backgroundColor: "#ffd230",
         ease: "power1.inOut",
         scrollTrigger: {
           trigger: "nav",
@@ -64,7 +64,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed z-50 w-full shadow-2xl">
+    <nav id="navbar" className="fixed z-50 w-full shadow-2xl">
       <div className="flex md:flex-row flex-col md:justify-between items-center gap-5 py-5 lg:px-0 px-5 container mx-auto">
         <a href="#home" className="flex items-center gap-5">
           <img src="/images/logo.png" alt="logo" />

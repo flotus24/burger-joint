@@ -39,16 +39,16 @@ const About = () => {
     <section id="about">
       <div className="flex h-screen">
         <div className="md:w-[50vw] relative">
-          <div className="abs-center bg-red-700">
+          <div className="abs-center">
             <img
               id="image1"
-              src="/images/fries (1).jpg"
+              src="/images/fries-model.jpg"
               alt="photo of fries"
               className="abs-model-1 lg:w-[22rem] md:w-60 z-10"
             />
             <img
               id="image2"
-              src="/images/eat-model.jpg"
+              src="/images/burger-model.jpg"
               alt="photo of burger"
               className="abs-model-2 lg:w-[32rem] md:w-72"
             />
