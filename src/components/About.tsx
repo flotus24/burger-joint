@@ -26,8 +26,9 @@ const About = () => {
       .timeline({
         scrollTrigger: {
           trigger: "#about",
-          start: "top bottom",
-          end: "bottom bottom",
+          start: "15% bottom",
+          end: "bottom top",
+          // markers: true,
           scrub: 3,
         },
       })
@@ -37,22 +38,20 @@ const About = () => {
 
   return (
     <section id="about">
-      <div className="flex h-screen">
+      <div className="flex h-screen md:mb-40 mt-0">
         <div className="md:w-[50vw] relative">
-          <div className="abs-center">
-            <img
-              id="image1"
-              src="/images/fries-model.jpg"
-              alt="photo of fries"
-              className="abs-model-1 lg:w-[22rem] md:w-60 z-10"
-            />
-            <img
-              id="image2"
-              src="/images/burger-model.jpg"
-              alt="photo of burger"
-              className="abs-model-2 lg:w-[32rem] md:w-72"
-            />
-          </div>
+          <img
+            id="image1"
+            src="/images/fries-model.jpg"
+            alt="photo of fries"
+            className="abs-model-1 lg:w-[22rem] md:w-60 z-10"
+          />
+          <img
+            id="image2"
+            src="/images/burger-model.jpg"
+            alt="photo of burger"
+            className="abs-model-2 lg:w-[32rem] md:w-72"
+          />
         </div>
         <div className="w-[50vw] relative">
           <div className="second-half-container w-full max-h-[100vh] bg-amber-300">

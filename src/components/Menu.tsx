@@ -42,36 +42,67 @@ const Menu = () => {
     },
   ];
 
+  //synchronous
   useGSAP(() => {
-    gsap.fromTo("#title", { opacity: 0 }, { opacity: 1, duration: 1 });
-    gsap.fromTo(
-      ".menu img",
-      { opacity: 0, xPercent: -100 },
-      { xPercent: 0, opacity: 1, duration: 1, ease: "power1.inOut" }
-    );
-    gsap.fromTo(
-      ".details h2",
-      { opacity: 0, yPercent: 100 },
-      { yPercent: 0, opacity: 100, ease: "power1.inOut" }
-    );
-    gsap.fromTo(
-      ".details p",
-      { opacity: 0, yPercent: 100 },
-      { yPercent: 0, opacity: 100, ease: "power1.inOut" }
-    );
-    gsap.fromTo(
-      "#bg-menu",
-      {
-        scale: 0,
+    const scrollTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#menu",
+        start: "75% bottom",
+        // markers: true,
       },
-      {
-        opacity: 100,
-        scale: 1.5,
-        duration: 1.2,
-        ease: "power2.inOut",
-      }
-    );
+    });
+
+    scrollTimeline
+      .fromTo(
+        ".menu img",
+        { opacity: 0, xPercent: -100 },
+        { xPercent: 0, opacity: 1, duration: 0.75, ease: "power1.inOut" }
+      )
+      .fromTo(
+        ".details h2",
+        { opacity: 0, yPercent: 100 },
+        { yPercent: 0, opacity: 1, ease: "power1.inOut" },
+        "<"
+      )
+      .fromTo(
+        ".details p",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3, ease: "power1.inOut" }
+      );
   }, [currentIndex]);
+
+  //asynchronous
+
+  // useGSAP(() => {
+  //   gsap.fromTo("#title", { opacity: 0 }, { opacity: 1, duration: 1 });
+  //   gsap.fromTo(
+  //     ".menu img",
+  //     { opacity: 0, xPercent: -100 },
+  //     { xPercent: 0, opacity: 1, duration: 1, ease: "power1.inOut" }
+  //   );
+  //   gsap.fromTo(
+  //     ".details h2",
+  //     { opacity: 0, yPercent: 100 },
+  //     { yPercent: 0, opacity: 100, ease: "power1.inOut" }
+  //   );
+  //   gsap.fromTo(
+  //     ".details p",
+  //     { opacity: 0, yPercent: 100 },
+  //     { yPercent: 0, opacity: 100, ease: "power1.inOut" }
+  //   );
+  //   gsap.fromTo(
+  //     "#bg-menu",
+  //     {
+  //       scale: 0,
+  //     },
+  //     {
+  //       opacity: 100,
+  //       scale: 1.5,
+  //       duration: 1.2,
+  //       ease: "power2.inOut",
+  //     }
+  //   );
+  // }, [currentIndex]);
 
   const totalMenu = sliderLists.length;
 
@@ -90,76 +121,68 @@ const Menu = () => {
   const nextMenu = getMenuAt(1);
 
   return (
-    <section
-      id="menu"
-      className="relative w-full md:mt-40 mt-0 2xl:px-0 px-5 pt-20 pb-50 bg-[#fff1ba]"
-    >
-      <div className="relative flex-center">
-        <div
-          id="bg-menu"
-          className="absolute top-60 md:w-96 md:h-96 w-56 h-56 bg-amber-300 rounded-full mix-blend-multiply filter blur-xl opacity-100"
-        ></div>
-      </div>
+    <section id="menu">
+      <div className="relative w-full md:h-auto h-screen 2xl:px-0 px-5 pt-30 pb-50 bg-radial from-[#fff5ce] to-amber-300 from-20% to-90%">
+        <nav className="grid md:grid-cols-4 grid-cols-2 md:gap-30 gap-10 sm:mb-32 mb-20 relative z-10 md:max-w-6xl md:mx-auto">
+          {sliderLists.map((menu, index) => {
+            const isActive: boolean = index === currentIndex;
+            return (
+              <button
+                key={menu.id}
+                className={`${
+                  isActive
+                    ? "opacity-100 text-green-700"
+                    : "opacity-60 hover:border-[#db4242]"
+                } font-sauce-tomato text-2xl hover:opacity-100 border-b-2 border-transparent cursor-pointer`}
+                onClick={() => goToSlide(index)}
+              >
+                {menu.name}
+              </button>
+            );
+          })}
+        </nav>
 
-      <nav className="grid md:grid-cols-4 grid-cols-2 md:gap-30 gap-10 sm:mb-32 mb-20 relative z-10 md:max-w-6xl md:mx-auto">
-        {sliderLists.map((menu, index) => {
-          const isActive: boolean = index === currentIndex;
-          return (
+        <div className="flex flex-col justify-between items-center container mx-auto relative">
+          <div className="flex items-center justify-between w-full absolute">
             <button
-              key={menu.id}
-              className={`${
-                isActive
-                  ? "opacity-100 text-green-700"
-                  : "opacity-60 hover:border-[#db4242]"
-              } font-sauce-tomato text-2xl hover:opacity-100 border-b-2 border-transparent cursor-pointer`}
-              onClick={() => goToSlide(index)}
+              className="text-left cursor-pointer relative"
+              onClick={() => goToSlide(currentIndex - 1)}
             >
-              {menu.name}
+              <span className="hidden md:block">
+                <p className="font-sauce-tomato w-32">{prevMenu.name}</p>
+              </span>
+              <IoArrowUndo size={40} className="absolute" />
             </button>
-          );
-        })}
-      </nav>
 
-      <div className="flex flex-col justify-between items-center container mx-auto relative">
-        <div className="flex items-center justify-between w-full absolute">
-          <button
-            className="text-left cursor-pointer relative"
-            onClick={() => goToSlide(currentIndex - 1)}
-          >
-            <span className="hidden md:block">
-              <p className="font-sauce-tomato w-32">{prevMenu.name}</p>
-            </span>
-            <IoArrowUndo size={40} className="absolute" />
-          </button>
+            <button
+              className="text-right cursor-pointer relative"
+              onClick={() => goToSlide(currentIndex + 1)}
+            >
+              <span className="hidden md:block">
+                <p className="font-sauce-tomato w-32">{nextMenu.name}</p>
+              </span>
 
-          <button
-            className="text-right cursor-pointer relative"
-            onClick={() => goToSlide(currentIndex + 1)}
-          >
-            <span className="hidden md:block">
-              <p className="font-sauce-tomato w-32">{nextMenu.name}</p>
-            </span>
+              <IoArrowRedo size={40} className="right-0 absolute" />
+            </button>
+          </div>
 
-            <IoArrowRedo size={40} className="right-0 absolute" />
-          </button>
-        </div>
+          <div className="menu flex-center">
+            <img src={currentMenu.image} className="object-contain" />
+          </div>
 
-        <div className="menu flex-center mt-10">
-          <img src={currentMenu.image} className="object-contain" />
-        </div>
-
-        <div className="flex max-md:flex-col gap-10 md:items-center justify-between w-full lg:absolute bottom-0">
-          {/* <div ref={contentRef} className="space-y-4 lg:translate-y-20">
+          <div className="flex max-md:flex-col gap-10 md:items-center justify-between w-full lg:absolute bottom-0">
+            {/* <div ref={contentRef} className="space-y-4 lg:translate-y-20">
             <p className="md:text-6xl text-3xl text-yellow max-w-40">
               {currentMenu.name}
             </p>
           </div> */}
 
-          <div className="details space-y-5 md:max-w-md text-left">
-            <h2 className="md:text-5xl text-3xl font-bold leading-14">
-              {currentMenu.title}
-            </h2>
-            <p className="md:text-2xl">{currentMenu.description}</p>
+            <div className="details space-y-5 md:max-w-md text-left">
+              <h2 className="md:text-5xl text-3xl font-bold leading-14">
+                {currentMenu.title}
+              </h2>
+              <p className="md:text-2xl">{currentMenu.description}</p>
+            </div>
           </div>
         </div>
       </div>
