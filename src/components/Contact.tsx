@@ -1,3 +1,6 @@
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/SplitText";
 import { FaSquareXTwitter, FaSquareInstagram } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
 
@@ -37,6 +40,30 @@ const Contact = () => {
     },
   ];
 
+  useGSAP(() => {
+    const titleSplit = SplitText.create("#contact h2", { type: "words" });
+
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#contact",
+        start: "top center",
+      },
+      ease: "power1.inOut",
+    });
+
+    timeline
+      .from(titleSplit.words, {
+        opacity: 0,
+        yPercent: 100,
+        stagger: 0.02,
+      })
+      .from("#contact h3, #contact p, #socials", {
+        opacity: 0,
+        yPercent: 100,
+        stagger: 0.02,
+      });
+  }, []);
+
   return (
     <footer id="contact">
       <div className="flex-center h-screen">
@@ -56,7 +83,7 @@ const Contact = () => {
             </p>
           ))}
           <h3 className="font-bold-serif text-6xl mt-4 mb-6">Socials</h3>
-          <div className="flex-center gap-5">
+          <div id="socials" className="flex-center gap-5">
             {socials.map((social) => (
               <a
                 key={social.name}
