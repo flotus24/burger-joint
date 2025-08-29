@@ -27,7 +27,7 @@ const About = () => {
         scrollTrigger: {
           trigger: "#about",
           start: "15% bottom",
-          end: "bottom top",
+          end: "bottom-=40px top",
           // markers: true,
           scrub: 3,
         },
@@ -38,7 +38,7 @@ const About = () => {
 
   return (
     <section id="about">
-      <div className="flex h-screen">
+      <div className="flex h-screen mb-30">
         <div className="w-[50vw] relative">
           <img
             id="image1"
@@ -57,10 +57,11 @@ const About = () => {
           <div className="second-half-container w-full max-h-[100vh] bg-amber-300">
             <p
               id="paragraph"
-              className="sm:text-xl md:text-2xl font-medium text-[#d32222] lg:px-16 lg:py-10 md:px-10 md:py-8 px-8 py-6"
+              className="sm:text-xl md:text-2xl font-medium text-[#d32222] lg:px-16 lg:py-10 sm:px-10 sm:py-8 pl-4 pr-3 py-3 m-0"
             >
-              Welcome to <span className="font-sauce-tomato">Burger Joint</span>
-              , where we believe that a great burger is more than just a meal—
+              Welcome to{" "}
+              <span className="font-sauce-tomato">Burger Joint,</span> where we
+              believe that a great burger is more than just a meal—
               <span className=" text-green-700">it's an experience</span>. We're
               a team of food lovers dedicated to crafting the perfect burger,
               from the

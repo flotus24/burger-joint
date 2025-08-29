@@ -181,7 +181,9 @@ const Menu = () => {
               <h2 className="md:text-5xl text-3xl font-bold leading-14">
                 {currentMenu.title}
               </h2>
-              <p className="md:text-2xl">{currentMenu.description}</p>
+              <p className="md:text-2xl text-[#d32222]">
+                {currentMenu.description}
+              </p>
             </div>
           </div>
         </div>
