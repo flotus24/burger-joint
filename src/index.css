@@ -36,11 +36,11 @@ body {
 }
 
 @utility abs-model-1 {
-  @apply absolute top-[15%] md:top-[20%] md:left-1/6 left-1/12;
+  @apply absolute md:top-[20%] top-[15%] md:left-1/6 left-1/12;
 }
 
 @utility abs-model-2 {
-  @apply absolute top-[10%] md:top-[15%] left-1/2;
+  @apply absolute md:top-[15%] top-[30%] md:left-1/2 left-1/6;
 }
 
 @utility second-half-container {

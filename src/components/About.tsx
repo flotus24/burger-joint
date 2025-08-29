@@ -38,19 +38,19 @@ const About = () => {
 
   return (
     <section id="about">
-      <div className="flex h-screen md:mb-40 mt-0">
-        <div className="md:w-[50vw] relative">
+      <div className="flex h-screen">
+        <div className="w-[50vw] relative">
           <img
             id="image1"
             src="/images/fries-model.jpg"
             alt="photo of fries"
-            className="abs-model-1 lg:w-[22rem] md:w-60 z-10"
+            className="abs-model-1 lg:w-[22rem] md:w-60 sm:w-48 w-36 z-10"
           />
           <img
             id="image2"
             src="/images/burger-model.jpg"
             alt="photo of burger"
-            className="abs-model-2 lg:w-[32rem] md:w-72"
+            className="abs-model-2 lg:w-[32rem] md:w-96 sm:w-64 w-48"
           />
         </div>
         <div className="w-[50vw] relative">

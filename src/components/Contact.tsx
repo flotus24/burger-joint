@@ -67,7 +67,7 @@ const Contact = () => {
   return (
     <footer id="contact">
       <div className="flex-center h-screen">
-        <div className="col-center text-3xl">
+        <div className="col-center md:text-3xl text-2xl">
           <h2 className="font-bold-serif text-6xl">Where to Find Us</h2>
           <h3 className="mt-4">Visit Our Location: </h3>
           <p className="mt-2 text-center">

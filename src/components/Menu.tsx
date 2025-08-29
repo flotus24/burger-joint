@@ -122,8 +122,8 @@ const Menu = () => {
 
   return (
     <section id="menu">
-      <div className="relative w-full md:h-auto h-screen 2xl:px-0 px-5 pt-30 pb-50 bg-radial from-[#fff5ce] to-amber-300 from-20% to-90%">
-        <nav className="grid md:grid-cols-4 grid-cols-2 md:gap-30 gap-10 sm:mb-32 mb-20 relative z-10 md:max-w-6xl md:mx-auto">
+      <div className="relative md:w-full w-auto md:h-auto h-screen 2xl:px-0 px-5 md:pt-30 pt-10 pb-50 bg-radial from-[#fff5ce] to-amber-300 from-20% to-90%">
+        <nav className="grid md:grid-cols-4 grid-cols-2 md:gap-30 gap-10 sm:mb-32 mb-10 relative z-10 md:max-w-6xl md:mx-auto">
           {sliderLists.map((menu, index) => {
             const isActive: boolean = index === currentIndex;
             return (
