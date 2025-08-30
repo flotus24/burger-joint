@@ -122,7 +122,7 @@ const Menu = () => {
 
   return (
     <section id="menu">
-      <div className="relative md:w-full w-auto md:h-auto h-screen 2xl:px-0 px-5 md:pt-30 pt-10 pb-50 bg-radial from-[#fff5ce] to-amber-300 from-20% to-90%">
+      <div className="relative md:w-full w-auto h-screen 2xl:px-0 px-5 md:pt-30 pt-10 bg-radial from-[#fff5ce] to-amber-300 from-20% to-90%">
         <nav className="grid md:grid-cols-4 grid-cols-2 md:gap-30 gap-10 sm:mb-32 mb-10 relative z-10 md:max-w-6xl md:mx-auto">
           {sliderLists.map((menu, index) => {
             const isActive: boolean = index === currentIndex;
@@ -133,7 +133,7 @@ const Menu = () => {
                   isActive
                     ? "opacity-100 text-green-700"
                     : "opacity-60 hover:border-[#db4242]"
-                } font-sauce-tomato text-2xl hover:opacity-100 border-b-2 border-transparent cursor-pointer`}
+                } font-sauce-tomato md:text-3xl text-2xl hover:opacity-100 border-b-2 border-transparent cursor-pointer`}
                 onClick={() => goToSlide(index)}
               >
                 {menu.name}
@@ -149,7 +149,9 @@ const Menu = () => {
               onClick={() => goToSlide(currentIndex - 1)}
             >
               <span className="hidden md:block">
-                <p className="font-sauce-tomato w-32">{prevMenu.name}</p>
+                <p className="font-sauce-tomato w-32 text-xl">
+                  {prevMenu.name}
+                </p>
               </span>
               <IoArrowUndo size={40} className="absolute z-10" />
             </button>
@@ -159,7 +161,9 @@ const Menu = () => {
               onClick={() => goToSlide(currentIndex + 1)}
             >
               <span className="hidden md:block">
-                <p className="font-sauce-tomato w-32">{nextMenu.name}</p>
+                <p className="font-sauce-tomato w-32 text-xl">
+                  {nextMenu.name}
+                </p>
               </span>
 
               <IoArrowRedo size={40} className="right-0 absolute z-10" />
