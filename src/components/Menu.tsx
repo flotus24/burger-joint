@@ -151,7 +151,7 @@ const Menu = () => {
               <span className="hidden md:block">
                 <p className="font-sauce-tomato w-32">{prevMenu.name}</p>
               </span>
-              <IoArrowUndo size={40} className="absolute" />
+              <IoArrowUndo size={40} className="absolute z-10" />
             </button>
 
             <button
@@ -162,7 +162,7 @@ const Menu = () => {
                 <p className="font-sauce-tomato w-32">{nextMenu.name}</p>
               </span>
 
-              <IoArrowRedo size={40} className="right-0 absolute" />
+              <IoArrowRedo size={40} className="right-0 absolute z-10" />
             </button>
           </div>
 
