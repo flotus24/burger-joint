@@ -1,6 +1,8 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
+import burgerModel from "../assets/burger-model.jpg";
+import friesModel from "../assets/fries-model.jpg";
 
 const About = () => {
   useGSAP(() => {
@@ -42,13 +44,13 @@ const About = () => {
         <div className="w-[50vw] relative">
           <img
             id="image1"
-            src="/images/fries-model.jpg"
+            src={friesModel}
             alt="photo of fries"
             className="abs-model-1 lg:w-[22rem] md:w-60 sm:w-48 w-36 z-10"
           />
           <img
             id="image2"
-            src="/images/burger-model.jpg"
+            src={burgerModel}
             alt="photo of burger"
             className="abs-model-2 lg:w-[32rem] md:w-96 sm:w-64 w-48"
           />
@@ -57,11 +59,13 @@ const About = () => {
           <div className="second-half-container w-full max-h-[100vh] bg-amber-300">
             <p
               id="paragraph"
-              className="sm:text-xl md:text-2xl font-medium text-[#d32222] lg:px-16 lg:py-10 sm:px-10 sm:py-8 pl-4 pr-3 py-3 m-0"
+              className="sm:text-xl md:text-2xl font-medium text-[#d32222] lg:px-16 lg:py-10 sm:px-10 sm:py-8 pl-4 pr-3 py-3 m-0 leading-[150%]"
             >
               Welcome to{" "}
-              <span className="font-sauce-tomato">Burger Joint,</span> where we
-              believe that a great burger is more than just a meal—
+              <span className="font-sauce-tomato md:text-lg">
+                Burger Joint,
+              </span>{" "}
+              where we believe that a great burger is more than just a meal—
               <span className=" text-green-700">it's an experience</span>. We're
               a team of food lovers dedicated to crafting the perfect burger,
               from the
