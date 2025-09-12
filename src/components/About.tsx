@@ -62,7 +62,7 @@ const About = () => {
               className="sm:text-xl md:text-2xl font-medium text-[#d32222] lg:px-16 lg:py-10 sm:px-10 sm:py-8 pl-4 pr-3 py-3 m-0 leading-[150%]"
             >
               Welcome to{" "}
-              <span className="font-sauce-tomato md:text-lg">
+              <span className="font-sauce-tomato md:text-lg align-middle">
                 Burger Joint,
               </span>{" "}
               where we believe that a great burger is more than just a meal—
