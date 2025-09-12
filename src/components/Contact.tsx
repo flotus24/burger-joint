@@ -82,7 +82,9 @@ const Contact = () => {
               {time.day} : {time.time}
             </p>
           ))}
-          <h3 className="font-bold-serif text-6xl mt-4 mb-6">Socials</h3>
+          <h3 className="font-bold-serif md:text-7xl text-6xl mt-4 mb-6">
+            Socials
+          </h3>
           <div id="socials" className="flex-center gap-5">
             {socials.map((social) => (
               <a

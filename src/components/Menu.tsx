@@ -30,7 +30,7 @@ const Menu = () => {
       image: "/images/shawarma-menu.png",
       title: "Spiced to Perfection",
       description:
-        "Thinly shaved, marinated meat (chicken or beef) roasted on a vertical spit, wrapped in warm pita bread with rich garlic sauce, crisp veggies, and pickles. A flavor journey in every bite.",
+        "Succulent marinated beef or chicken roasted wrapped in warm pita bread with garlic sauce, crisp veggies, and pickles. A flavor journey in every bite.",
     },
     {
       id: 4,
@@ -43,6 +43,22 @@ const Menu = () => {
   ];
 
   //synchronous
+  useGSAP(() => {
+    const scrollTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#menu",
+        start: "75% bottom",
+        // markers: true,
+      },
+    });
+
+    scrollTimeline.to(".bg", {
+      backgroundImage: "radial-gradient(at center, #fff5ce 20%, #fcd34d 90%)",
+      duration: 1,
+      ease: "power1.out",
+    });
+  }, []);
+
   useGSAP(() => {
     const scrollTimeline = gsap.timeline({
       scrollTrigger: {
@@ -71,39 +87,6 @@ const Menu = () => {
       );
   }, [currentIndex]);
 
-  //asynchronous
-
-  // useGSAP(() => {
-  //   gsap.fromTo("#title", { opacity: 0 }, { opacity: 1, duration: 1 });
-  //   gsap.fromTo(
-  //     ".menu img",
-  //     { opacity: 0, xPercent: -100 },
-  //     { xPercent: 0, opacity: 1, duration: 1, ease: "power1.inOut" }
-  //   );
-  //   gsap.fromTo(
-  //     ".details h2",
-  //     { opacity: 0, yPercent: 100 },
-  //     { yPercent: 0, opacity: 100, ease: "power1.inOut" }
-  //   );
-  //   gsap.fromTo(
-  //     ".details p",
-  //     { opacity: 0, yPercent: 100 },
-  //     { yPercent: 0, opacity: 100, ease: "power1.inOut" }
-  //   );
-  //   gsap.fromTo(
-  //     "#bg-menu",
-  //     {
-  //       scale: 0,
-  //     },
-  //     {
-  //       opacity: 100,
-  //       scale: 1.5,
-  //       duration: 1.2,
-  //       ease: "power2.inOut",
-  //     }
-  //   );
-  // }, [currentIndex]);
-
   const totalMenu = sliderLists.length;
 
   const goToSlide = (index: number) => {
@@ -122,7 +105,7 @@ const Menu = () => {
 
   return (
     <section id="menu">
-      <div className="relative md:w-full w-auto h-screen 2xl:px-0 px-5 md:pt-30 pt-10 bg-radial from-[#fff5ce] to-amber-300 from-20% to-90%">
+      <div className="bg relative md:w-full w-auto h-screen 2xl:px-0 px-5 md:pt-30 pt-10 bg-amber-300">
         <nav className="grid md:grid-cols-4 grid-cols-2 md:gap-30 gap-10 sm:mb-32 mb-10 relative z-10 md:max-w-6xl md:mx-auto">
           {sliderLists.map((menu, index) => {
             const isActive: boolean = index === currentIndex;
@@ -182,10 +165,10 @@ const Menu = () => {
           </div> */}
 
             <div className="details space-y-5 md:max-w-md text-left">
-              <h2 className="md:text-5xl text-3xl font-bold sm:leading-14">
+              <h2 className="md:text-7xl text-6xl font-bold-serif sm:leading-14 leading-11">
                 {currentMenu.title}
               </h2>
-              <p className="md:text-2xl text-[#d32222] leading-[125%]">
+              <p className="md:text-2xl text-[#d32222] leading-[150%]">
                 {currentMenu.description}
               </p>
             </div>
