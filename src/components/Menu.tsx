@@ -6,6 +6,7 @@ import { IoArrowRedo, IoArrowUndo } from "react-icons/io5";
 const Menu = () => {
   // const contentRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  gsap.defaults({ overwrite: true });
 
   const sliderLists = [
     {
@@ -66,6 +67,7 @@ const Menu = () => {
         start: "75% bottom",
         // markers: true,
       },
+      delay: 0.1,
     });
 
     scrollTimeline
